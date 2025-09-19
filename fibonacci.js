@@ -1,25 +1,39 @@
-let numbersToBePrinted = 7;
+let numbersToBePrinted = 6;
 let firstNumber = 0;
 let secondNumber = 1;
 let thirdNumber = firstNumber + secondNumber;
-console.log(firstNumber, secondNumber, thirdNumber);
+let countOfPrintedNumbers = 2;
+console.log(firstNumber, secondNumber);
 
-firstNumber = secondNumber;
-secondNumber = thirdNumber;
-thirdNumber = firstNumber + secondNumber;
-console.log(thirdNumber);
+if(countOfPrintedNumbers <= numbersToBePrinted){
+    console.log(thirdNumber);
+    firstNumber = secondNumber;
+    secondNumber = thirdNumber;
+    thirdNumber = firstNumber + secondNumber;
+    countOfPrintedNumbers = countOfPrintedNumbers + 1;
+}
 
-firstNumber = secondNumber;
-secondNumber = thirdNumber;
-thirdNumber = firstNumber + secondNumber;
-console.log(thirdNumber);
+if(countOfPrintedNumbers <= numbersToBePrinted){
+    console.log(thirdNumber);
+    firstNumber = secondNumber;
+    secondNumber = thirdNumber;
+    thirdNumber = firstNumber + secondNumber;
+    countOfPrintedNumbers = countOfPrintedNumbers + 1;
+}
 
-firstNumber = secondNumber;
-secondNumber = thirdNumber;
-thirdNumber = firstNumber + secondNumber;
-console.log(thirdNumber);
+if(countOfPrintedNumbers <= numbersToBePrinted){
+    console.log(thirdNumber);
+    firstNumber = secondNumber;
+    secondNumber = thirdNumber;
+    thirdNumber = firstNumber + secondNumber;
+    countOfPrintedNumbers = countOfPrintedNumbers + 1;
 
-firstNumber = secondNumber;
-secondNumber = thirdNumber;
-thirdNumber = firstNumber + secondNumber;
-console.log(thirdNumber);
+}
+
+if(countOfPrintedNumbers <= numbersToBePrinted){
+    console.log(thirdNumber);
+    firstNumber = secondNumber;
+    secondNumber = thirdNumber;
+    thirdNumber = firstNumber + secondNumber;
+    countOfPrintedNumbers = countOfPrintedNumbers + 1;
+}
