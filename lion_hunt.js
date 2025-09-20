@@ -1,5 +1,6 @@
-const testCase1 = "Z Z Z";
-const spaceBetweenLionAndZebra = -1;
+const testCase1 = "L  ZL Z";
+let spaceBetweenLionAndZebra = -1;
+let closetSpace = -1;
 let countOfLions = 0;
 let countOfZebra = 0;
 let index = 0;
@@ -16,23 +17,13 @@ for (let index = 0; index < testCase1.length; index++) {
     }
 }
 if (countOfLions > 0 && countOfZebra > 0) {
-    if (testCaseToUse[index] === " ") {
-        spaceBetweenLionAndZebra = spaceBetweenLionAndZebra + 1;
-    } else {
-        closetSpace = (closetSpace === -1 || spaceBetweenLionAndZebra < closetSpace) ? closetSpace = spaceBetweenLionAndZebra : closetSpace
-        spaceBetweenLionAndZebra = 0;
-    }
-    if (testCaseToUse[index] === " ") {
-        spaceBetweenLionAndZebra = spaceBetweenLionAndZebra + 1;
-    } else {
-        closetSpace = (closetSpace === -1 || spaceBetweenLionAndZebra < closetSpace) ? closetSpace = spaceBetweenLionAndZebra : closetSpace
-        spaceBetweenLionAndZebra = 0;
-    }
-    if (testCaseToUse[index] === " ") {
-        spaceBetweenLionAndZebra = spaceBetweenLionAndZebra + 1;
-    } else {
-        closetSpace = (closetSpace === -1 || spaceBetweenLionAndZebra < closetSpace) ? closetSpace = spaceBetweenLionAndZebra : closetSpace
-        spaceBetweenLionAndZebra = 0;
+    for (let index = firstAnimal + 1; index < testCase1.length; index++){
+        if (testCase1[index] === " ") {
+            spaceBetweenLionAndZebra = spaceBetweenLionAndZebra + 1;
+        } else {
+            closetSpace = (closetSpace === -1 || spaceBetweenLionAndZebra < closetSpace) ? closetSpace = spaceBetweenLionAndZebra : closetSpace
+            spaceBetweenLionAndZebra = 0;
+        }
     }
     
 }
