@@ -1,2 +1,3 @@
 const testCase1 = "LZ";
-console.log("LZ 0")
+const spaceBetweenLionAndZebra = 0;
+console.log("Input: ",testCase1,"Output: ",spaceBetweenLionAndZebra);
