@@ -1,36 +1,15 @@
-const stringToBeChecked = "ABCCBA";
+const stringToBeChecked = "aa";
 const lengthOfString = stringToBeChecked.length;
 let CountOfEqualCharacters = 0;
-let stringIndex
 
-if(stringToBeChecked[stringIndex] === stringToBeChecked[lengthOfString - stringIndex - 1]){
-    CountOfEqualCharacters = CountOfEqualCharacters +1
+for (let stringIndex = 0; stringIndex < lengthOfString; stringIndex++) {
+    if (stringToBeChecked[stringIndex] === stringToBeChecked[lengthOfString - stringIndex - 1]) {
+        CountOfEqualCharacters = CountOfEqualCharacters + 1
+    }
+    stringIndex = stringIndex + 1
 }
-stringIndex = stringIndex + 1
 
+const suffix = (CountOfEqualCharacters === lengthOfString / 2) ? "is a palindrome" : "is not a palindrome"
 
-if(stringToBeChecked[stringIndex] === stringToBeChecked[lengthOfString - stringIndex - 1]){
-    CountOfEqualCharacters = CountOfEqualCharacters +1
-}
-stringIndex = stringIndex + 1
+console.log(stringToBeChecked, suffix);
 
-if(stringToBeChecked[stringIndex] === stringToBeChecked[lengthOfString - stringIndex - 1]){
-    CountOfEqualCharacters = CountOfEqualCharacters +1
-}
-stringIndex = stringIndex + 1
-
-if(stringToBeChecked[stringIndex] === stringToBeChecked[lengthOfString - stringIndex - 1]){
-    CountOfEqualCharacters = CountOfEqualCharacters +1
-}
-stringIndex = stringIndex + 1
-
-const suffix = (CountOfEqualCharacters === lengthOfString ) ? "is a palindrome" : "is not a palindrome"
-
-console.log( stringToBeChecked,suffix);
-
-
-
-
-if (lengthOfString % 2 !== 0){
-    CountOfEqualCharacters = 0.5
-}
