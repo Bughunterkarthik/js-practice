@@ -1,2 +1,2 @@
 const stringToBeChecked = "karthik";
-console.log("Karthik is not a palindrome");
+console.log( stringToBeChecked,"is not a palindrome");
