@@ -12,27 +12,40 @@ function isConsonant(character) {
   return isConsonant;
 }
 
+
 function splitWord(string) {
-  let resultString = "" + string[0];
-  let previousType = isConsonant(string[0]) ? "consonant" : "vowel";
+  let actual = string;
+  let resultString = "";
+  while (actual.length !== 0) {
+    resultString = resultString + actual[0];
+    let remainingString = "";
+    let previousType = isConsonant(actual[0]) ? "consonant" : "vowel";
 
-  for (let currIndex = 1; currIndex < string.length; currIndex++) {
-    if (previousType === 'vowel') {
-      if (isConsonant(string[currIndex])) {
-        resultString = resultString + string[currIndex];
-        console.log("consonant: ", string[currIndex]);
-        previousType = "consonant";
-      }
+    for (let currIndex = 1; currIndex < actual.length; currIndex++) {
+      if (previousType === 'vowel') {
+        if (isConsonant(actual[currIndex])) {
+          resultString = resultString + actual[currIndex];
+          previousType = "consonant";
+        } else {
+          remainingString = remainingString + actual[currIndex];
+        }
 
-    } else {
-      if (isVowel(string[currIndex])) {
-        resultString = resultString + string[currIndex];
-        console.log("vowel: ", string[currIndex]);
-        previousType = "vowel";
-
+      } else {
+        if (isVowel(actual[currIndex])) {
+          resultString = resultString + actual[currIndex];
+          previousType = "vowel";
+        } else {
+          remainingString = remainingString + actual[currIndex];
+        }
       }
     }
+
+    actual = remainingString;
+    if (actual.length >= 1) {
+      resultString = resultString + ',';
+    }
   }
+
   return resultString;
 }
 
@@ -54,6 +67,12 @@ function testSplitWord(string, expected) {
 function main() {
   testSplitWord("a", "a");
   testSplitWord("karthik", "karik,t,h");
+  testSplitWord("hello", "helo,l");
+  testSplitWord("apple", "ape,p,l");
+  testSplitWord("there", "tere,h");
+  testSplitWord("abyss", "ab,y,s,s");
+  testSplitWord("this", "tis,h");
+  testSplitWord("", "");
   testSplitWord("thoughtworks", "togor,huh,t,w,k,s");
 }
 
