@@ -5,13 +5,6 @@ function isVowel(character) {
   return isVowel;
 }
 
-function isConsonant(character) {
-  let isConsonant = character !== 'a' && character !== 'e';
-  isConsonant = isConsonant && character !== 'i' && character !== 'o';
-  isConsonant = isConsonant && character !== 'u';
-  return isConsonant;
-}
-
 
 function splitWord(string) {
   let actual = string;
@@ -19,11 +12,11 @@ function splitWord(string) {
   while (actual.length !== 0) {
     resultString = resultString + actual[0];
     let remainingString = "";
-    let previousType = isConsonant(actual[0]) ? "consonant" : "vowel";
+    let previousType = isVowel(actual[0]) ? "vowel" : "consonant";
 
     for (let currIndex = 1; currIndex < actual.length; currIndex++) {
       if (previousType === 'vowel') {
-        if (isConsonant(actual[currIndex])) {
+        if (!isVowel(actual[currIndex])) {
           resultString = resultString + actual[currIndex];
           previousType = "consonant";
         } else {
@@ -74,6 +67,7 @@ function main() {
   testSplitWord("this", "tis,h");
   testSplitWord("", "");
   testSplitWord("thoughtworks", "togor,huh,t,w,k,s");
+  testSplitWord("aaabbb", "ab,ab,ab");
 }
 
 main();
