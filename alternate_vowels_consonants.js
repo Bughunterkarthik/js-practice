@@ -5,31 +5,23 @@ function isVowel(character) {
   return isVowel;
 }
 
-
 function splitWord(string) {
   let actual = string;
   let resultString = "";
   while (actual.length !== 0) {
     resultString = resultString + actual[0];
     let remainingString = "";
-    let previousType = isVowel(actual[0]) ? "vowel" : "consonant";
+    let previousCharIsVowel = isVowel(actual[0]);
 
     for (let currIndex = 1; currIndex < actual.length; currIndex++) {
-      if (previousType === 'vowel') {
-        if (!isVowel(actual[currIndex])) {
-          resultString = resultString + actual[currIndex];
-          previousType = "consonant";
-        } else {
-          remainingString = remainingString + actual[currIndex];
-        }
-
+      if (!isVowel(actual[currIndex]) && (previousCharIsVowel === true)) {
+        resultString = resultString + actual[currIndex];
+        previousCharIsVowel = false;
+      } else if (isVowel(actual[currIndex]) && (previousCharIsVowel === false)) {
+        resultString = resultString + actual[currIndex];
+        previousCharIsVowel = true;
       } else {
-        if (isVowel(actual[currIndex])) {
-          resultString = resultString + actual[currIndex];
-          previousType = "vowel";
-        } else {
-          remainingString = remainingString + actual[currIndex];
-        }
+        remainingString = remainingString + actual[currIndex];
       }
     }
 
@@ -47,7 +39,6 @@ function generateMessage(string, actual, expected) {
   const inputFragment = ' | [ ' + string + ' ]';
   const actualFragment = " | actual: " + actual;
   const expectedFragment = " | expected: " + expected;
-
   return status + inputFragment + actualFragment + expectedFragment;
 }
 
