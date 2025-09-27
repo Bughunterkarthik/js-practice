@@ -5,21 +5,25 @@ function isVowel(character) {
   return isVowel;
 }
 
+function convert() {
+
+}
+
 function splitWord(string) {
   let actual = string;
   let resultString = "";
   while (actual.length !== 0) {
     resultString = resultString + actual[0];
     let remainingString = "";
-    let previousCharIsVowel = isVowel(actual[0]);
+    let isPreviousCharVowel = isVowel(actual[0]);
 
     for (let currIndex = 1; currIndex < actual.length; currIndex++) {
-      if (!isVowel(actual[currIndex]) && (previousCharIsVowel === true)) {
+      if (!isVowel(actual[currIndex]) && (isPreviousCharVowel === true)) {
         resultString = resultString + actual[currIndex];
-        previousCharIsVowel = false;
-      } else if (isVowel(actual[currIndex]) && (previousCharIsVowel === false)) {
+        isPreviousCharVowel = false;
+      } else if (isVowel(actual[currIndex]) && (isPreviousCharVowel === false)) {
         resultString = resultString + actual[currIndex];
-        previousCharIsVowel = true;
+        isPreviousCharVowel = true;
       } else {
         remainingString = remainingString + actual[currIndex];
       }
